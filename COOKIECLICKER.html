@@ -1,0 +1,142 @@
+<html>
+<head>
+<style>
+.Detabelmetinfo {
+width : 300px;
+height: 115px;
+background-color: lightblue;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+
+}
+
+.tabelInfo {
+ color : black;
+ background-color: lightblue;
+}
+
+.Tabellen {
+width : 500px;
+height: 200px;
+background-color: lightblue;
+margin-left: auto;
+margin-right: auto;
+font-size: 12px;
+text-align : center;
+}
+.Tellermoney {
+	width : 500px;
+	height: 25px;
+	background-color: lightblue;
+	margin-left: auto;
+	margin-right: auto;
+	text-align : center;
+	margin-top: 0px;
+
+}
+</style>
+<h3>
+<div class="Tabellen">
+  <button id="Joep"   ><img src="joep.png" width="100px" height="100px" ></button>
+  <button id='Punten' ><img id='' src="smartie.jpg" width="100px" height="100px"></button>
+  <button id='Extra' ><img id='' src="oven.jpg" width="100px" height="100px"></button>
+  <br>
+  <br>
+  you can buy the baker, that costs 300 points per extra point per second.
+  <br>
+  You can buy 10 points instead of 1 per click, but that costs 250 points. You need to hold those points.
+
+</div>
+  <br>
+  <div class="Tellermoney"> Money :<span id="money">0</span></div>
+  
+ </h3>
+ 
+</head>
+
+<body>
+<div class="Detabelmetinfo">
+<table class="Tabelinfo" style="border-style : solid">
+  <tr>
+    <td> A VIEW EXTRA EARNING MOMENTS : </td>
+  </tr>
+  <tr>
+    <td> you get + 5 points if you clicked 10 times </td>
+  </tr>
+  <tr>
+    <td> you get + 100 points if you clicked 40 times </td>
+  </tr>
+  <tr>
+    <td> you get + 100 points if you clicked 200 times </td>
+  </tr>
+  </td>
+  
+  </tr>
+  
+</table>
+</div>
+<script>
+var money = 0;
+var cps = 0;
+
+function Coins() {
+ 
+ money = money + 1 ;
+ document.getElementById("money").innerHTML = money;
+ 
+ if (money == 500){
+  alert("Congratulations! you have reached 500 points! keep up the good work!"); 
+ }
+ 
+ if (money == 9){
+  money = money + 5; 
+ }
+ 
+ if (money == 199){
+  money = money + 100;
+ }
+ 
+ if (money == 40){
+  money = money + 100;
+ }
+}
+
+function Extrapunten(){
+ if(money >= 250){
+  money = money + 10;
+  document.getElementById("money").innerHTML = money;
+ }
+ 
+ else {
+  alert("With this clicker you can farm 10 cookies per click, But you need at least 250 cookies to unlock this farmer")
+ }
+}
+function upgrade(){
+  
+   money = money + 0.1;
+   document.getElementById("money").innerHTML = money;
+}
+function aanzetten(){
+
+ if (money >= 300){
+   setInterval ("upgrade()",1000)
+   
+   money = money - 300
+ }
+ 
+ document.getElementById("money").innerHTML = money;
+}
+
+function stelEventsIn(){
+ document.getElementById("Joep").onclick = Coins
+ document.getElementById("Punten").onclick = Extrapunten
+
+ document.getElementById("Extra").onclick = aanzetten
+
+}
+
+window.onload= stelEventsIn
+</script>
+</body>
+</html>
